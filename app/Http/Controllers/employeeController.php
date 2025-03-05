@@ -13,8 +13,23 @@ class employeeController extends Controller
      */
     public function index()
     {
+
         $employee = Employee::with('department')->get();
-        return view('employee.read', compact('employee'));
+        $employeeCount = Employee::count();
+        $departmentCount = Department::count();
+
+        $contract = Employee::where('status', 'cont')->count();
+        $employee1 = Employee::where('status', 'emp')->count();
+        $not_active = Employee::where('status', 'not_act')->count();
+        
+        return view('employee.read', compact(
+            'employee',
+            'employeeCount',
+            'departmentCount',
+            'contract',
+            'employee1',
+            'not_active'
+            ));
     }
 
     /**

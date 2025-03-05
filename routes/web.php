@@ -10,6 +10,10 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
 });
 
+Route::get('/', function(){
+    return redirect('/login');
+});
+
 Route::middleware(['auth'])->group(function(){
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

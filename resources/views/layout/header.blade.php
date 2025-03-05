@@ -7,15 +7,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/employee">Employee</a>
+              <a class="nav-link {{ Request::is('employee*') ? 'active' : '' }}" href="/employee">Employee</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/report/status">Status</a>
+              <a class="nav-link {{ Request::is('report/status*') ? 'active' : '' }}" href="/report/status">Status</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/report/summary">Summary</a>
+              <a class="nav-link {{ Request::is('report/summary*') ? 'active' : '' }}" href="/report/summary">Summary</a>
           </li>
-        </ul>
+      </ul>      
         <div class="collapse navbar-collapse justify-content-end">
             <h5>{{Auth::user()->username}} | {{Auth::user()->level}}</h5>
             <a href="/logout"><button type="button" class="btn btn-danger ms-2">Logout</button></a>
